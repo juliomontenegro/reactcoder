@@ -18,7 +18,7 @@ function Navbar (){
       <li><a href="#">producto1</a></li>
       <li><a href="#">producto2</a></li>
       <li><a href="#">producto3</a></li>
-      <li><a href="#">mi compra</a></li>
+      <CartWidget />
     </ul>
   </div>
   
