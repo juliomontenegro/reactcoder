@@ -26,8 +26,8 @@ numerocard
           <span className="card-title activator grey-text text-darken-4">{numerocard}<i className="material-icons right">more_vert</i></span>
           <div>
               <h3>{counter}</h3>
-              <a class="btn-floating btn-small waves-effect waves-light red" onClick={sumarClick}><i class="material-icons">add</i></a>
-              <a class="btn-floating btn-small waves-effect waves-light red" onClick={restarClick}><i class="material-icons">remove</i></a>
+              <a className="btn-floating btn-small waves-effect waves-light red" onClick={sumarClick}><i className="material-icons">add</i></a>
+              <a className="btn-floating btn-small waves-effect waves-light red" onClick={restarClick}><i className="material-icons">remove</i></a>
           </div>
         </div>
         <div className="card-reveal">
