@@ -1,41 +1,39 @@
 import React from 'react';
-function UserCard ({
-datoproducto1,
-datoproducto2,
-datoproducto3,
-datoproducto4,
-numerocard
-
-
-
-}){ 
-    
+function UserCard ({product}){ 
+    const [stock, setStock]= React.useState(10);
     const[counter, setCounter]= React.useState(0);
     const sumarClick = () =>{
-       setCounter(counter+1);
+      
+ 
+     stock!==0&& setCounter(counter+1);
+     stock!==0&&setStock(stock-1);
+      
+        
+       
+       
    };
    const restarClick = () =>{
-       if (counter!==0){
-           setCounter(counter-1)
-       }}
+    counter!==0&& setCounter(counter-1);
+    counter!==0&&setStock(stock+1);}
     return (
         <div className="row">
         <div className="col s12 m6">
         <div className="card small">
         <div className="card-content">
-          <span className="card-title activator grey-text text-darken-4">{numerocard}<i className="material-icons right">more_vert</i></span>
+          <span className="card-title activator grey-text text-darken-4">{product.numerocard}<i className="material-icons right">more_vert</i></span>
           <div>
               <h3>{counter}</h3>
+              <h4>En stock: {stock} unidades</h4>
               <a className="btn-floating btn-small waves-effect waves-light red" onClick={sumarClick}><i className="material-icons">add</i></a>
               <a className="btn-floating btn-small waves-effect waves-light red" onClick={restarClick}><i className="material-icons">remove</i></a>
           </div>
         </div>
         <div className="card-reveal">
           <span className="card-title grey-text text-darken-4">Card Title<i className="material-icons right">close</i></span>
-          <p>Caracteristica1: {datoproducto1}</p>
-          <p>Caracteristica2: {datoproducto2}</p>
-          <p>Caracteristica3:{datoproducto3}</p>
-          <p>Caracteristica4: {datoproducto4}</p>
+          <p>Caracteristica1: {product.datoproducto1}</p>
+          <p>Caracteristica2: {product.datoproducto2}</p>
+          <p>Caracteristica3:{product.datoproducto3}</p>
+          <p>Caracteristica4: {product.datoproducto4}</p>
         </div>
       </div>
 
