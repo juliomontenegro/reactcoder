@@ -1,4 +1,5 @@
 import React from 'react';
+import"./UserCard.css"
 function UserCard ({product}){ 
     const [stock, setStock]= React.useState(10);
     const[counter, setCounter]= React.useState(0);
@@ -16,8 +17,8 @@ function UserCard ({product}){
     counter!==0&& setCounter(counter-1);
     counter!==0&&setStock(stock+1);}
     return (
-        <div className="row">
-        <div className="col s12 m6">
+        <div className="row valign-wrapper">
+        <div className="col">
         <div className="card small">
         <div className="card-content">
           <span className="card-title activator grey-text text-darken-4">{product.numerocard}<i className="material-icons right">more_vert</i></span>

@@ -19,11 +19,11 @@ function ItemlistContainer (){
 
 return (
     
-    <>{isLoading ? (
+    <div className="container">{isLoading ? (
         <p>Cargando...</p>
       ) : (
         products.map((product) => <UserCard key={product.id} product={product} />)
-      )}</>
+      )}</div>
       
    
 )
