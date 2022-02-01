@@ -1,34 +1,48 @@
 import { useEffect, useState } from "react";
-import {getProductos} from "../Item/Item"
+
 import UserCard from "../UserCard";
 
 function ItemlistContainer (){
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-  
+    const [error, setError] = useState(null);
     useEffect(() => {
+
+      const URL="http://localhost:3001/PRODUCTS";
+
       setIsLoading(true);
-      getProductos()
-        .then((data) => setProducts(data))
-        .catch((error) => console.error(error))
-        .finally(() => setIsLoading(false));
+
+      fetch(URL)
+      .then((response)=>response.json())
+      .then((json)=>setProducts(json))
+      .catch((err)=>setError(err))
+      .finally(()=>setIsLoading(false));
+
+
     }, []);
+ 
+    if(isLoading){
 
+      return <p>Cargando...</p>
 
+    }else if(error){
 
+      return <p>hubo un error {error.message}</p>
 
-return (
-    
-    <div className="container">{isLoading ? (
-        <p>Cargando...</p>
-      ) : (
-        products.map((product) => <UserCard key={product.id} product={product} />)
+    }else
+    return(
+
+      <div className="container">
+        {products.map((product) => <UserCard key={product.id} product={product} />
       )}</div>
-      
-   
-)
 
-}
+      
+
+    )}
+
+
+
+
 
 
 export default ItemlistContainer;
