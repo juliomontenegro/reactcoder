@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 
 import UserCard from "../UserCard";
 
-function ItemlistContainer (){
+function ItemlistContainer ({urlServer}){
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    
     useEffect(() => {
 
-      const URL="http://localhost:3001/PRODUCTS";
+      const URL=urlServer;
+
+      
 
       setIsLoading(true);
 

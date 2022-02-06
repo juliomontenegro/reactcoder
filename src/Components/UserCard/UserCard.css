@@ -1,7 +1,4 @@
 .row{
     justify-content: center;
-}
-
-.card{
-    min-width: 400px;
+    padding-top:5%;
 }

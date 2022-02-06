@@ -2,37 +2,81 @@
     "PRODUCTS":[
         {    
             "id":1,
-            "numerocard":"1",
-            "datoproducto1": 20,
-            "datoproducto2": "propiedad1",
-            "datoproducto3": "propiedad2",
-            "datoproducto4": "propiedad3"
+            "fullname":"Sandwichs Ibericos",
+            "name":"Sandwich de Miga simple",
+            "price":80,
+            "description": "Sandwichs ibericos simples con mayonesa",
+            "img": "simples_ibericos_1.jpg",
+            "path":"/Simples"
         },
         
         {
             "id":2,
-            "numerocard":"2",
-            "datoproducto1":30,
-            "datoproducto2":"propiedad4",
-            "datoproducto3":"propiedad5",
-            "datoproducto4":"propiedad6"
+            "fullname":"Sandwichs de Jamon Cocido",
+            "name":"Sandwich de Miga simple",
+            "price":85,
+            "description": "Sandwichs de jamon cocido simples con mayonesa",
+            "img":"simples_jamon_cocido_2.jpg",
+            "path":"/Simples"
         },
         {
             "id":3,
-            "numerocard":"3",
-            "datoproducto1":40,
-            "datoproducto2":"propiedad7",
-            "datoproducto3":"propiedad8",
-            "datoproducto4":"propiedad9"
+            "fullname":"Sandwich de Jamon Crudo",
+            "name":"Sandwich de Miga simple",
+            "price":92,
+            "description": "Sandwichs de jamon crudo simples con mayonesa",
+            "img":"simples_jamon_crudo_3.jpg",
+            "path":"/Simples"
         },
         {
             "id":4,
-            "numerocard":"4",
-            "datoproducto1":50,
-            "datoproducto2":"propiedad10",
-            "datoproducto3":"propiedad11",
-            "datoproducto4":"propiedad12"
+            "fullname":"Sandwich de Queso",
+            "name":"Sandwich de Miga simple",
+            "price":100,
+            "description": "Sandwichs de queso simples con mayonesa",
+            "img":"simples_de_queso_4.jpg",
+            "path":"/Simples"
         }
         
-        ]
+        ],
+        "PRODUCTS2":[
+            {    
+                "id":1,
+                "fullname":"Sandwich Clasico de Jamon y Queso",
+                "name":"Sandwich de Miga triple",
+                "price":100,
+                "description": "Sandwichs Clasicos de jamon y queso triples con mayonesa",
+                "img": "jamon_y_queso_1.jpg",
+                "path":"/Triples"
+            },
+            
+            {
+                "id":2,
+                "fullname":"Sandwich de Jamon Crudo y Tomate",
+                "name":"Sandwich de Miga triple",
+                "price":110,
+                "description": "Sandwichs de jamon crudo y Tomate triples con mayonesa",
+                "img":"jamon_crudo_y_tomate_2.jpg",
+                "path":"/Triples"
+            },
+            {
+                "id":3,
+                "fullname":"Sandwich de Jamon Cocido y Huevo",
+                "name":"Sandwich de Miga triple",
+                "price":115,
+                "description": "Sandwichs de jamon cocido y huevo triples con mayonesa",
+                "img":"jamon_cocido_y_huevo_3.jpg",
+                "path":"/Triples"
+            },
+            {
+                "id":4,
+                "fullname":"Sandwich de Jamon Crudo y Roquefort",
+                "name":"Sandwich de Miga triple",
+                "price":105,
+                "description": "Sandwichs de jamon crudo y roquefort triples con mayonesa",
+                "img":"jamon_crudo_y_roquefort_4.jpg",
+                "path":"/Triples"
+            }
+            
+            ]
 }

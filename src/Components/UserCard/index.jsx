@@ -1,46 +1,35 @@
-import React from 'react';
+
+import { useNavigate } from "react-router-dom";
 import"./UserCard.css"
 function UserCard ({product}){ 
-    const [stock, setStock]= React.useState(10);
-    const[counter, setCounter]= React.useState(0);
-    const sumarClick = () =>{
-      
- 
-     stock!==0&& setCounter(counter+1);
-     stock!==0&&setStock(stock-1);
-      
-        
-       
-       
-   };
-   const restarClick = () =>{
-    counter!==0&& setCounter(counter-1);
-    counter!==0&&setStock(stock+1);}
+
+    const navigate= useNavigate();
+
+
     return (
-        <div className="row valign-wrapper">
-        <div className="col">
-        <div className="card small">
-        <div className="card-content">
-          <span className="card-title activator grey-text text-darken-4">{product.numerocard}<i className="material-icons right">more_vert</i></span>
-          <div>
-              <h3>{counter}</h3>
-              <h4>En stock: {stock} unidades</h4>
-              <a className="btn-floating btn-small waves-effect waves-light red" onClick={sumarClick}><i className="material-icons">add</i></a>
-              <a className="btn-floating btn-small waves-effect waves-light red" onClick={restarClick}><i className="material-icons">remove</i></a>
+
+     
+
+              
+      <div className="col s12 m6 valign-wrapper">
+        <div className="card">
+          <div className="card-image">
+            <img src={`${process.env.PUBLIC_URL}/assets/img/${product.img}`} alt={product.fullname} />
+            <span className="card-title blue-text"><strong>{product.fullname}</strong></span>
+            <button className="btn-floating btn-larg halfway-fab waves-effect waves-light green" onClick={()=>navigate(`producto/${product.id}`)}><i class="material-icons">add</i></button>
+            
           </div>
-        </div>
-        <div className="card-reveal">
-          <span className="card-title grey-text text-darken-4">Card Title<i className="material-icons right">close</i></span>
-          <p>Caracteristica1: {product.datoproducto1}</p>
-          <p>Caracteristica2: {product.datoproducto2}</p>
-          <p>Caracteristica3:{product.datoproducto3}</p>
-          <p>Caracteristica4: {product.datoproducto4}</p>
-        </div>
+          <div className="card-content">
+              <p>{product.description}</p>
+            </div>
       </div>
-
-
-        </div>
       </div>
+      
+      
+      
+
+       
+
         
       );
     }
