@@ -13,7 +13,7 @@ Si desea correr este proyecto, simplemente clone este repositorio  y ejecute
 npm install
 luego
  npm start 
-en carpeta frontend
+
 
 ## Tecnologías 🛠️
 
