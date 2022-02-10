@@ -16,7 +16,7 @@ function UserCard ({product}){
           <div className="card-image">
             <img src={`${process.env.PUBLIC_URL}/assets/img/${product.img}`} alt={product.fullname} />
             <span className="card-title blue-text"><strong>{product.fullname}</strong></span>
-            <button className="btn-floating btn-larg halfway-fab waves-effect waves-light green" onClick={()=>navigate(`producto/${product.id}`)}><i class="material-icons">add</i></button>
+            <button className="btn-floating btn-larg halfway-fab waves-effect waves-light green" onClick={()=>navigate(`producto/${product.id}`)}><i className="material-icons">add</i></button>
             
           </div>
           <div className="card-content">

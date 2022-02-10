@@ -9,28 +9,43 @@ const ItemDetail = ({ UrlServerDetail }) => {
 
   const [stock, setStock] = React.useState(10);
   const [counter, setCounter] = React.useState(0);
-  const sumarClick = () => {
-    stock !== 0 && setCounter(counter + 1);
-    stock !== 0 && setStock(stock - 1);
-  };
-  const restarClick = () => {
-    counter !== 0 && setCounter(counter - 1);
-    counter !== 0 && setStock(stock + 1);
-  };
+
+
+  
+ const sumarClick=()=> {
+     
+    stock !== 0 && setCounter((contador) => contador + 1);
+    stock !== 0 && setStock((estock) => estock - 1);
+  }
+  const restarClick= ()=> {
+      
+  counter !== 0 && setCounter((contador)=>contador - 1);
+  counter !== 0 && setStock((estock)=>estock + 1);
+  }
+
+ 
 
   useEffect(() => {
     const URL = `${UrlServerDetail}/${id}`;
+  
 
     setIsLoading(true);
     fetch(URL)
       .then((res) => res.json())
       .then((data) => setProduct(data))
       .finally(() => setIsLoading(false));
+
+
+     
+    
+
+
   }, [id]);
 
   if (isLoading || !product) return <p>Cargando...</p>;
 
   return (
+
     <div>
       <h1 className="center-align">{product.name}</h1>
 
@@ -51,7 +66,7 @@ const ItemDetail = ({ UrlServerDetail }) => {
               <i>{product.description}</i>
             </h5>
 
-            <div div className="">
+            <div>
               <h3>
                 Precio :
                 <strong className="green-text"> $ {product.price}</strong>
@@ -59,14 +74,14 @@ const ItemDetail = ({ UrlServerDetail }) => {
               <h3>{counter}</h3>
               <h5>En stock: {stock} unidades</h5>
               <a
-                className="btn-floating btn-medium waves-effect waves-light red"
-                onClick={sumarClick}
+                className="btn-floating btn-medium waves-effect waves-light red" onClick={sumarClick}
+               
               >
                 <i className="material-icons">add</i>
               </a>
               <a
-                className="btn-floating btn-medium waves-effect waves-light red"
-                onClick={restarClick}
+                className="btn-floating btn-medium waves-effect waves-light red" onClick={restarClick}
+                
               >
                 <i className="material-icons">remove</i>
               </a>
@@ -80,4 +95,7 @@ const ItemDetail = ({ UrlServerDetail }) => {
     </div>
   );
 };
+
+
 export default ItemDetail;
+
