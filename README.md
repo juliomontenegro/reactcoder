@@ -25,3 +25,7 @@ Este proyecto fue realizado por las siguientes tecnologías
 
 
  ### Desarrollado por  [Julio Montenegro](https://github.com/juliomontenegro)
+<<<<<<< HEAD
+=======
+
+>>>>>>> d287c91757f8a820311b9daad2314fb42554728a
