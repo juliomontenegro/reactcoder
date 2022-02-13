@@ -1,4 +1,9 @@
-{
+{  
+    "USER": {
+      "name": "Julio",
+      "surname": "Montenegro",
+      "mail": "jmontenegro0680@gmail.com"
+    },
     "PRODUCTS":[
         {    
             "id":1,

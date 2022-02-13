@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useCart } from "../../Context/CartContext";
 
 const ItemDetail = ({ UrlServerDetail }) => {
   const { id } = useParams();
@@ -9,7 +10,7 @@ const ItemDetail = ({ UrlServerDetail }) => {
 
   const [stock, setStock] = React.useState(10);
   const [counter, setCounter] = React.useState(0);
-
+  const { addItem } = useCart();
 
   
  const sumarClick=()=> {
@@ -23,11 +24,14 @@ const ItemDetail = ({ UrlServerDetail }) => {
   counter !== 0 && setStock((estock)=>estock + 1);
   }
 
+  const handleClick = () => {
+    addItem(product, counter);
+  };
  
 
   useEffect(() => {
+    
     const URL = `${UrlServerDetail}/${id}`;
-  
 
     setIsLoading(true);
     fetch(URL)
@@ -40,7 +44,7 @@ const ItemDetail = ({ UrlServerDetail }) => {
     
 
 
-  }, [id]);
+  }, [id,UrlServerDetail]);
 
   if (isLoading || !product) return <p>Cargando...</p>;
 
@@ -73,21 +77,21 @@ const ItemDetail = ({ UrlServerDetail }) => {
               </h3>
               <h3>{counter}</h3>
               <h5>En stock: {stock} unidades</h5>
-              <a
+              <button
                 className="btn-floating btn-medium waves-effect waves-light red" onClick={sumarClick}
                
               >
                 <i className="material-icons">add</i>
-              </a>
-              <a
+              </button>
+              <button
                 className="btn-floating btn-medium waves-effect waves-light red" onClick={restarClick}
                 
               >
                 <i className="material-icons">remove</i>
-              </a>
-              <br></br>
-              <br></br>
-              <button className="btn">Comprar ahora</button>
+              </button>
+              <br/>
+              <br/>
+              <button className="btn" onClick={handleClick}>Comprar ahora</button>
             </div>
           </div>
         </div>

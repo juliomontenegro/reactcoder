@@ -12,7 +12,7 @@ function UserCard ({product}){
 
               
       <div className="col s12 m6 valign-wrapper">
-        <div className="card">
+        <div className="card z-depth-2">
           <div className="card-image">
             <img src={`${process.env.PUBLIC_URL}/assets/img/${product.img}`} alt={product.fullname} />
             <span className="card-title blue-text"><strong>{product.fullname}</strong></span>

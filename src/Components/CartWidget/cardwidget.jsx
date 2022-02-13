@@ -1,8 +1,11 @@
+import {Link } from "react-router-dom";
+
 function CartWidget () {
 
     return(
-      <li><a href="#"><i className="material-icons">shopping_cart</i></a></li>  
+      <li><Link to="cart"><i className="material-icons">shopping_cart</i></Link></li>  
     )
 
 }
 export default CartWidget;
+

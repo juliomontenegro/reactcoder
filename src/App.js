@@ -5,18 +5,23 @@ import HomePage from './Pages/HomePage';
 import SimplesPage from './Pages/SimplesPage';
 import TriplesPage from './Pages/TriplesPage';
 import ItemDetail from './Components/ItemDetail/ItemDetail';
+import CartPage from './Pages/CartPage';
 import NotFoundPage from './Pages/NotFoundPage';
+import { UserProvider } from "./Context/UserContext";
+import { CartProvider } from "./Context/CartContext";
 
 
 function App() {
    
-   const urldetail2=`http://localhost:3001/PRODUCTS2/`;
+   
 
 
   return (
     
           <div className="App">
-           
+                   <UserProvider>
+      <CartProvider>
+     
             <BrowserRouter>
             <NavBar />
               
@@ -32,11 +37,13 @@ function App() {
                         <Route path="Triples"element={<TriplesPage/>}/>
                         <Route path="/Triples/producto/:id" element={<ItemDetail UrlServerDetail="http://localhost:3001/PRODUCTS2/"/>}/>
                         
-                      
+                        <Route path="Cart" element={<CartPage />}/>
                         <Route path="*" element={<NotFoundPage/>}/>
                   </Routes>
             </BrowserRouter>
             
+            </CartProvider>
+    </UserProvider>
           </div>
     
 
