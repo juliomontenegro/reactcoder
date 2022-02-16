@@ -46,7 +46,7 @@
         ],
         "PRODUCTS2":[
             {    
-                "id":1,
+                "id":101,
                 "fullname":"Sandwich Clasico de Jamon y Queso",
                 "name":"Sandwich de Miga triple",
                 "price":100,
@@ -56,7 +56,7 @@
             },
             
             {
-                "id":2,
+                "id":102,
                 "fullname":"Sandwich de Jamon Crudo y Tomate",
                 "name":"Sandwich de Miga triple",
                 "price":110,
@@ -65,7 +65,7 @@
                 "path":"/Triples"
             },
             {
-                "id":3,
+                "id":103,
                 "fullname":"Sandwich de Jamon Cocido y Huevo",
                 "name":"Sandwich de Miga triple",
                 "price":115,
@@ -74,7 +74,7 @@
                 "path":"/Triples"
             },
             {
-                "id":4,
+                "id":104,
                 "fullname":"Sandwich de Jamon Crudo y Roquefort",
                 "name":"Sandwich de Miga triple",
                 "price":105,

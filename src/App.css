@@ -40,3 +40,26 @@
 h1 {
   font-size : clamp(2.8rem, 10vw, 4.5rem);
 }
+.carro{
+ 
+  display:block;
+  position:relative;
+}
+.carronum{
+  /* display:block; */
+  z-index: 1;
+  color:white;
+  position:absolute;
+  background-color:red;
+  border-radius: 50%;
+  width:20px;
+  height:20px;
+  text-align: center;
+ 
+  
+  
+}
+.licarro{
+  
+  display:inline-block;
+}

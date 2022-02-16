@@ -1,7 +1,8 @@
 import CartWidget from "./CartWidget/cardwidget";
 import {Link } from "react-router-dom";
 function Navbar (){  
-    return        <div>
+    return        <div >
+      <div className="navbar-fixed">
     <nav>
       <div className="nav-wrapper">
       <Link to="/" className="brand-logo">Tienda</Link>
@@ -12,8 +13,9 @@ function Navbar (){
           <li><Link to="/Triples">Triples</Link></li>
           <CartWidget />
         </ul>
-      </div>
+      </div>  
     </nav>
+    </div>
     <ul className="sidenav" id="mobile-demo">
       <li><Link to="/">Home</Link></li>
       <li><Link to="/Simples">Simples</Link></li>
