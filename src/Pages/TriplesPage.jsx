@@ -5,7 +5,7 @@ const TriplesPage=()=>{
             <h1 className="center-align">Sandwichs Triples</h1>
             <div className="container">
             <div className="row">
-            <ItemlistContainer urlServer="http://localhost:3001/PRODUCTS2"/>
+            <ItemlistContainer urlServer="PRODUCTS2"/>
             <div/>
             </div>
             

@@ -31,11 +31,11 @@ function App() {
                         <Route path="/" index element={<HomePage />}/> 
                         <Route path="Simples" element={<SimplesPage />}/>
                         
-                        <Route path="/Simples/producto/:id" element={<ItemDetail UrlServerDetail="http://localhost:3001/PRODUCTS/"/>}/>
+                        <Route path="/Simples/producto/:id" element={<ItemDetail UrlServerDetail="PRODUCTS"/>}/>
                      
                      
                         <Route path="Triples"element={<TriplesPage/>}/>
-                        <Route path="/Triples/producto/:id" element={<ItemDetail UrlServerDetail="http://localhost:3001/PRODUCTS2/"/>}/>
+                        <Route path="/Triples/producto/:id" element={<ItemDetail UrlServerDetail="PRODUCTS2"/>}/>
                         
                         <Route path="Cart" element={<CartPage />}/>
                         <Route path="*" element={<NotFoundPage/>}/>

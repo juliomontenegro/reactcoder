@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-
 import UserCard from "../UserCard";
+import {getFirestore} from "../../Firebase/Firebase";
 
 function ItemlistContainer ({urlServer}){
     const [products, setProducts] = useState([]);
@@ -9,20 +9,27 @@ function ItemlistContainer ({urlServer}){
     
     useEffect(() => {
 
-      const URL=urlServer;
-
-      
-
-      setIsLoading(true);
-
-      fetch(URL)
-      .then((response)=>response.json())
-      .then((json)=>setProducts(json))
-      .catch((err)=>setError(err))
-      .finally(()=>setIsLoading(false));
+      const db = getFirestore();
 
 
-    }, []);
+       const productsCollection=db.collection(urlServer);
+       
+
+      const getDataFromFirestore = async () => {
+        setIsLoading(true);
+        try {
+          const response = await productsCollection.get();
+          if (response.empty) console.log("No hay productos");
+          setProducts(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        } catch (err) {
+          setError(err);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      getDataFromFirestore();
+
+    }, [urlServer]);
  
     if(isLoading){
 

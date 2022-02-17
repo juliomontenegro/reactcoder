@@ -6,7 +6,7 @@ const SimplesPage=()=>{
         <div className="container">
         <div className="row">
         <ItemlistContainer 
-        urlServer="http://localhost:3001/PRODUCTS"
+        urlServer="PRODUCTS"
         
         />
         <div/>

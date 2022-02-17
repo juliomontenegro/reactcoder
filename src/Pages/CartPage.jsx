@@ -9,7 +9,7 @@ const CartPage = () => {
     
     <div className="container">
       <h1 className="center-align">Mi Carrito de Compras</h1>
-      {cart.length==0? <h2 className="center-align">El carrito esta vacio <Link to="/">Volver</Link></h2> :
+      {cart.length===0? <h2 className="center-align">El carrito esta vacio <Link to="/">Volver</Link></h2> :
       <>
       <table className="striped centered" >
             <thead>

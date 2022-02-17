@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCart } from "../../Context/CartContext";
+import {getFirestore} from "../../Firebase/Firebase"
 
 const ItemDetail = ({ UrlServerDetail }) => {
   const { id } = useParams();
@@ -30,18 +31,21 @@ const ItemDetail = ({ UrlServerDetail }) => {
  
 
   useEffect(() => {
-    
-    const URL = `${UrlServerDetail}/${id}`;
+
+    const db = getFirestore();
+
+    const productsCollection = db.collection(UrlServerDetail);
+    const selectedProduct = productsCollection.doc(id);
 
     setIsLoading(true);
-    fetch(URL)
-      .then((res) => res.json())
-      .then((data) => setProduct(data))
+    selectedProduct
+      .get()
+      .then((response) => {
+        if (!response.exists) console.log("El producto no existe");
+        setProduct({ ...response.data(), id: response.id });
+      })
       .finally(() => setIsLoading(false));
 
-
-     
-    
 
 
   }, [id,UrlServerDetail]);

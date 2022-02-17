@@ -8,14 +8,7 @@ export const UserProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    setIsLoading(true);
-    fetch("http://localhost:3001/USER")
-      .then((response) => response.json())
-      .then((json) => setData(json))
-      .catch((err) => setError(err))
-      .finally(() => setIsLoading(false));
-  }, []);
+
 
   const cambiarNombre = () => {
     setData({
