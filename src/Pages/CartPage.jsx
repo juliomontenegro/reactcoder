@@ -1,10 +1,47 @@
 import * as React from "react";
 import {Link } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
+import {getFirestore} from "../Firebase/Firebase"
 
 const CartPage = () => {
  const { cart, removeItem, clearAll } = useCart();
+ const [buyername, setBuyername] = React.useState("");
+ const [phone, setPhone] = React.useState("");
 
+ const totalCompra = (cart) => {
+  let total = 0;
+  cart.forEach((element) => {
+    total += element.item.price * element.quantity;
+  });
+  return total;
+};
+
+
+ const handleSubmit = async (evt) => {
+  evt.preventDefault();
+
+  if (!buyername || !phone) {
+    console.log("Por favor llene los campos");
+    return false;
+  }
+
+ const newOrder = {
+  buyer: { buyername, phone, },
+  items: cart,
+  total: totalCompra(cart),
+  
+}
+console.log(newOrder);
+const db = getFirestore();
+    db.collection("ORDERS")
+    .add(newOrder)
+    .then((res)=>console.log("compra realizada exitosamente, su id de orden es: ", res.id))
+    .catch((err)=>console.log("Hubo un error",err));
+
+
+};
+
+  
   return (
     
     <div className="container">
@@ -43,11 +80,55 @@ const CartPage = () => {
         </tbody>        
       </table>
 
-       <div className="container "><h3 className="center-align">El total de su compra es de: <span className="green-text"><strong>${(cart.map((purchase)=>purchase.quantity*purchase.item.price)).reduce((a, b) => a + b, 0)}</strong></span> </h3></div>
-      <button onClick={clearAll}>Borrar todo</button>
+       <div className="container "><h3 className="center-align">El total de su compra es de: <span className="green-text"><strong>${totalCompra(cart)}</strong></span> </h3></div>
+       
+
+       <h2>Introduzca sus datos:</h2>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          border: "1px solid red",
+        }}
+      >
+        <label htmlFor="buyername">Nombre</label>
+        <input
+          type="text"
+          id="buyername"
+          name="buyername"
+          placeholder="Escriba su nombre"
+          value={buyername}
+          onChange={(e) => setBuyername(e.target.value)}
+        />
+        <label htmlFor="phone">Teléfono</label>
+        <input
+          type="number"
+          id="phone"
+          name="phone"
+          placeholder="Escriba su teléfono"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+        />
+        <input type="submit" value="Finalizar compra" />
+      </form>
+      <button onClick={clearAll}>Eliminar Compra</button>
+
+
+
+
+
+
       </>}
+
+
+
+
     </div>
   );
+
+  
 };
 
 export default CartPage;
+

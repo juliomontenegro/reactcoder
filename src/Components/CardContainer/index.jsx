@@ -29,7 +29,7 @@ function ItemlistContainer ({urlServer}){
       };
       getDataFromFirestore();
 
-    }, [urlServer]);
+    }, [setIsLoading, urlServer]);
  
     if(isLoading){
 
