@@ -4,10 +4,12 @@ import { createContext, useContext, useState } from "react";
 export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(JSON.parse(window.sessionStorage.getItem('savedCart'))||[]);
   const [cartQuantity, setCartQuantity] = useState(0);
+  
 
   useEffect(() => {
+    window.sessionStorage.setItem('savedCart',JSON.stringify(cart));
     const getQuantity = () => {
       let quantity = 0;
       cart.forEach((order) => {

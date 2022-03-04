@@ -54,7 +54,7 @@ const ItemDetail = ({ UrlServerDetail }) => {
 
   return (
 
-    <div>
+    <div className="fullpage">
       <h1 className="center-align">{product.name}</h1>
 
       <div className="container ">

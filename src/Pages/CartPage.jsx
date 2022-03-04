@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Link } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
 import {getFirestore} from "../Firebase/Firebase"
 
@@ -7,6 +7,7 @@ const CartPage = () => {
  const { cart, removeItem, clearAll } = useCart();
  const [buyername, setBuyername] = React.useState("");
  const [phone, setPhone] = React.useState("");
+ let navigate= useNavigate();
 
  const totalCompra = (cart) => {
   let total = 0;
@@ -35,7 +36,11 @@ console.log(newOrder);
 const db = getFirestore();
     db.collection("ORDERS")
     .add(newOrder)
-    .then((res)=>console.log("compra realizada exitosamente, su id de orden es: ", res.id))
+    .then((res)=>{console.log("compra realizada exitosamente, su id de orden es: ", res.id)
+  
+    navigate(`/Thanks/${res.id}`)
+    }, clearAll())
+    
     .catch((err)=>console.log("Hubo un error",err));
 
 
@@ -44,7 +49,7 @@ const db = getFirestore();
   
   return (
     
-    <div className="container">
+    <div className="container fullpage">
       <h1 className="center-align">Mi Carrito de Compras</h1>
       {cart.length===0? <h2 className="center-align">El carrito esta vacio <Link to="/">Volver</Link></h2> :
       <>

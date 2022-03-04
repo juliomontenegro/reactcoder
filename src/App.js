@@ -9,6 +9,8 @@ import CartPage from './Pages/CartPage';
 import NotFoundPage from './Pages/NotFoundPage';
 import { UserProvider } from "./Context/UserContext";
 import { CartProvider } from "./Context/CartContext";
+import {ThankYouPage} from './Pages/ThankYouPage'
+import Footer from './Components/Footer';
 
 
 function App() {
@@ -38,8 +40,10 @@ function App() {
                         <Route path="/Triples/producto/:id" element={<ItemDetail UrlServerDetail="PRODUCTS2"/>}/>
                         
                         <Route path="Cart" element={<CartPage />}/>
+                        <Route path="Thanks/:id" element={<ThankYouPage/>}/>
                         <Route path="*" element={<NotFoundPage/>}/>
                   </Routes>
+                  <Footer/>
             </BrowserRouter>
             
             </CartProvider>
