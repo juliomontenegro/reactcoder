@@ -67,7 +67,7 @@ const db = getFirestore();
                   <th>Precio</th>
                   <th>Cantidad</th>
                   <th>Subtotal</th>
-                  <th>Borrar</th>
+                  <th></th>
               </tr>
               </thead>
               <tbody>
@@ -82,7 +82,7 @@ const db = getFirestore();
             <td>$ {purchase.item.price}</td>
             <td>{purchase.quantity}</td>
             <td>$ {purchase.quantity*purchase.item.price}</td>
-            <td><button className="btn"  onClick={() => removeItem(purchase.item.id)}>borrar</button></td>
+            <td><button className="btn red"  onClick={() => removeItem(purchase.item.id)}>borrar</button></td>
             </tr>
  
         );

@@ -8,28 +8,29 @@ const ItemDetail = ({ UrlServerDetail }) => {
   const { id } = useParams();
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
-  const [stock, setStock] = React.useState(10);
-  const [counter, setCounter] = React.useState(0);
-  const { addItem } = useCart();
-
   
- const sumarClick=()=> {
+  
+  const [stock, setStock] = React.useState(1);
+  const [counter, setCounter] = React.useState(1);
+  const { addItem } = useCart();
+  
+  
+  const sumarClick=()=> {
      
-    stock !== 0 && setCounter((contador) => contador + 1);
-    stock !== 0 && setStock((estock) => estock - 1);
+    product.stock !== 0 && setCounter((contador) => contador + 1);
+    product.stock !== 0 && setStock((estock) => estock + 1);
   }
   const restarClick= ()=> {
       
-  counter !== 0 && setCounter((contador)=>contador - 1);
-  counter !== 0 && setStock((estock)=>estock + 1);
+  counter !== 1 && setCounter((contador)=>contador - 1);
+  counter !== 1 && setStock((estock)=>estock - 1);
   }
-
+ 
   const handleClick = () => {
     addItem(product, counter);
   };
  
-
+  console.log(stock);
   useEffect(() => {
 
     const db = getFirestore();
@@ -43,6 +44,7 @@ const ItemDetail = ({ UrlServerDetail }) => {
       .then((response) => {
         if (!response.exists) console.log("El producto no existe");
         setProduct({ ...response.data(), id: response.id });
+       
       })
       .finally(() => setIsLoading(false));
 
@@ -51,6 +53,8 @@ const ItemDetail = ({ UrlServerDetail }) => {
   }, [id,UrlServerDetail]);
 
   if (isLoading || !product) return <p>Cargando...</p>;
+
+  
 
   return (
 
@@ -81,7 +85,7 @@ const ItemDetail = ({ UrlServerDetail }) => {
               </h3>
                {counter>1? <h4 className="green-text">Total:${counter*product.price}</h4>:""}
               
-              <h5>En stock: {stock} unidades</h5>
+              <h5>En stock: {(product.stock - stock)} unidades</h5>
               <div className="valign-wrapper containerCounter">
               <button
                 className="btn-floating btn-medium waves-effect waves-light red" onClick={sumarClick}
