@@ -13,7 +13,7 @@ const HomePage = () => {
                 <Link to="/Simples">
                   <img src={require("../Imagenes/migasimple_500x500.jpg")} alt="sandwich de miga simple" />
                 </Link>
-                <span className="card-title"><strong>SIMPLES</strong></span>
+                <span className="card-title blue-text text-lighten-2 textStroke"><strong>SIMPLES</strong></span>
               </div>
               <div className="card-content">
                 <p>Sandwichs de miga simples</p>
@@ -27,7 +27,7 @@ const HomePage = () => {
                 <Link to="/Triples">
                   <img src={require("../Imagenes/migatriple_500x500.jpg")} alt="sandwich de miga triple" />
                 </Link>
-                <span className="card-title"><strong>TRIPLES</strong></span>
+                <span className="card-title blue-text text-lighten-2 textStroke"><strong>TRIPLES</strong></span>
               </div>
               <div className="card-content">
                 <p>Sandwichs de miga triple</p>

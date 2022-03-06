@@ -8,7 +8,7 @@ const CartPage = () => {
  const [buyername, setBuyername] = React.useState("");
  const [phone, setPhone] = React.useState("");
  let navigate= useNavigate();
-
+ 
  const totalCompra = (cart) => {
   let total = 0;
   cart.forEach((element) => {
@@ -16,15 +16,21 @@ const CartPage = () => {
   });
   return total;
 };
-
+ 
 
  const handleSubmit = async (evt) => {
   evt.preventDefault();
 
-  if (!buyername || !phone) {
-    console.log("Por favor llene los campos");
-    return false;
+  
+
+  if((!isNaN(buyername))||(buyername.length<3||buyername.length>30)||(isNaN(phone))||(phone.length<6||phone.length>16)  ){
+    console.log("Por favor llene los campos correctamente")
+    return false; 
   }
+
+
+  
+  
 
  const newOrder = {
   buyer: { buyername, phone, },
@@ -76,7 +82,7 @@ const db = getFirestore();
             <td>$ {purchase.item.price}</td>
             <td>{purchase.quantity}</td>
             <td>$ {purchase.quantity*purchase.item.price}</td>
-            <td><button onClick={() => removeItem(purchase.item.id)}>borrar</button></td>
+            <td><button className="btn"  onClick={() => removeItem(purchase.item.id)}>borrar</button></td>
             </tr>
  
         );
@@ -88,17 +94,10 @@ const db = getFirestore();
        <div className="container "><h3 className="center-align">El total de su compra es de: <span className="green-text"><strong>${totalCompra(cart)}</strong></span> </h3></div>
        
 
-       <h2>Introduzca sus datos:</h2>
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          border: "1px solid red",
-        }}
-      >
+       <h2 className="center-align">Introduzca sus datos:</h2>
+      <form onSubmit={handleSubmit} className="formwide">
         <label htmlFor="buyername">Nombre</label>
-        <input
+        <input className="input-field col s6"
           type="text"
           id="buyername"
           name="buyername"
@@ -107,17 +106,18 @@ const db = getFirestore();
           onChange={(e) => setBuyername(e.target.value)}
         />
         <label htmlFor="phone">Teléfono</label>
-        <input
+        <input className="input-field col s12"
           type="number"
           id="phone"
           name="phone"
-          placeholder="Escriba su teléfono"
+          placeholder="Escriba su teléfono, solo numeros"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
-        <input type="submit" value="Finalizar compra" />
+        <input className="btn" style={{marginRight:'20px'}} type="submit" value="Finalizar compra" />
+        <button className="btn red"  onClick={clearAll}>Eliminar Compra</button>
       </form>
-      <button onClick={clearAll}>Eliminar Compra</button>
+      
 
 
 

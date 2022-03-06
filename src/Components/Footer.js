@@ -1,7 +1,7 @@
 function Footer (){
     return(
         
-        <footer className="page-footer">
+        <footer className="page-footer blue lighten-2">
           
 
           <div className="footer-copyright ">

@@ -79,23 +79,27 @@ const ItemDetail = ({ UrlServerDetail }) => {
                 Precio :
                 <strong className="green-text"> $ {product.price}</strong>
               </h3>
-              <h3>{counter}</h3>
+               {counter>1? <h4 className="green-text">Total:${counter*product.price}</h4>:""}
+              
               <h5>En stock: {stock} unidades</h5>
+              <div className="valign-wrapper containerCounter">
               <button
                 className="btn-floating btn-medium waves-effect waves-light red" onClick={sumarClick}
                
               >
                 <i className="material-icons">add</i>
-              </button>
+              </button><h3 className="spaceMargin">{counter}</h3>
               <button
                 className="btn-floating btn-medium waves-effect waves-light red" onClick={restarClick}
                 
               >
                 <i className="material-icons">remove</i>
               </button>
+              </div>
+
               <br/>
               <br/>
-              <button className="btn" onClick={handleClick}>Comprar ahora</button>
+              <button className="btn" onClick={handleClick}>Agregar al carrito</button>
             </div>
           </div>
         </div>

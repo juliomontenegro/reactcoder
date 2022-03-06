@@ -14,8 +14,8 @@ function UserCard ({product}){
       <div className="col s12 m6 valign-wrapper">
         <div className="card z-depth-2">
           <div className="card-image">
-            <img src={`${process.env.PUBLIC_URL}/assets/img/${product.img}`} alt={product.fullname} />
-            <span className="card-title blue-text"><strong>{product.fullname}</strong></span>
+            <img className="wide" src={`${process.env.PUBLIC_URL}/assets/img/${product.img}`} alt={product.fullname} />
+            <span className="card-title blue-text text-lighten-2 textStroke"><strong>{product.fullname}</strong></span>
             <button className="btn-floating btn-larg halfway-fab waves-effect waves-light green" onClick={()=>navigate(`producto/${product.id}`)}><i className="material-icons">add</i></button>
             
           </div>
