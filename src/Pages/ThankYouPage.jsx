@@ -20,7 +20,7 @@ export const ThankYouPage = ()=> {
     },[id]);
 
     if (!order.id) {
-        return <p>Cargando...</p>;
+        return <p className="center-align">Cargando...</p>;
       }
 
      

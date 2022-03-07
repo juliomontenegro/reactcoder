@@ -52,7 +52,7 @@ const ItemDetail = ({ UrlServerDetail }) => {
 
   }, [id,UrlServerDetail]);
 
-  if (isLoading || !product) return <p>Cargando...</p>;
+  if (isLoading || !product) return <p className="center-align">Cargando...</p>;
 
   
 
