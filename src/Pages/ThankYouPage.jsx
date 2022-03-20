@@ -29,7 +29,7 @@ export const ThankYouPage = ()=> {
         <div className="container fullpage">
             <h1 className="center-align">Gracias por su compra {order.buyer.buyername}</h1>
             <h2 className="center-align"><i>Detalle de su compra</i></h2>
-            <h3 className="center-align">gasto un total de <strong className="green-text">$ {order.total }</strong>  en:</h3>
+            <h3 className="center-align">Su codigo de compra es: <span className="green z-depth-2">{id}</span> y gasto un total de <strong className="green-text">$ {order.total }</strong>  en:</h3>
            
 
 
