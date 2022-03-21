@@ -1,39 +1,20 @@
-import { Link } from "react-router-dom";
+import HomeCard from "../Components/HomeCard/HomeCard"
 
 const HomePage = () => {
   return (
-    <main>
+    <main className="fullpage">
       <h1 className="center-align">Mi Tienda</h1>
 
       <div className="container">
         <div className="row">
-          <div className="col s12 m6">
-            <div className="card z-depth-3">
-              <div className="card-image">
-                <Link to="/Simples">
-                  <img src={require("../Imagenes/migasimple_500x500.jpg")} alt="sandwich de miga simple" />
-                </Link>
-                <span className="card-title blue-text text-lighten-2 textStroke"><strong>SIMPLES</strong></span>
-              </div>
-              <div className="card-content">
-                <p>Sandwichs de miga simples</p>
-              </div>
-            </div>
-          </div>
+        <HomeCard pageDir="Simples" imgDir="migasimple_500x500.jpg" altDir="sandwich de miga simple" nameDir="SANDWICH SIMPLES" desDir="Sandwichs de Miga Simples" />
 
-          <div className="col s12 m6">
-            <div className="card z-depth-3">
-              <div className="card-image">
-                <Link to="/Triples">
-                  <img src={require("../Imagenes/migatriple_500x500.jpg")} alt="sandwich de miga triple" />
-                </Link>
-                <span className="card-title blue-text text-lighten-2 textStroke"><strong>TRIPLES</strong></span>
-              </div>
-              <div className="card-content">
-                <p>Sandwichs de miga triple</p>
-              </div>
-            </div>
-          </div>
+        <HomeCard pageDir="Triples" imgDir="migatriple_500x500.jpg" altDir="sandwich de miga triple" nameDir="SANDWICH TRIPLES" desDir="Sandwichs de Miga Trimples" />
+
+        <HomeCard pageDir="Tortas" imgDir="tortas_500x500.jpg" altDir="variedad de tortas" nameDir="TORTAS" desDir="Gran Variedad de Tortas" />
+
+
+
         </div>
       </div>
     </main>
