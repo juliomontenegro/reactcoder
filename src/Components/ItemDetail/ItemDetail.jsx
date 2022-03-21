@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCart } from "../../Context/CartContext";
 import {getFirestore} from "../../Firebase/Firebase"
+import PreLoader from "../PreLoaders/PreLoaders"
 
 const ItemDetail = ({ UrlServerDetail }) => {
   const { id } = useParams();
@@ -52,7 +53,7 @@ const ItemDetail = ({ UrlServerDetail }) => {
 
   }, [id,UrlServerDetail]);
 
-  if (isLoading || !product) return <p className="center-align">Cargando...</p>;
+  if (isLoading || !product) return <PreLoader/>;
 
   
 

@@ -6,11 +6,12 @@ function Navbar (){
     <nav className="blue lighten-2">
       <div className="nav-wrapper">
       <Link to="/" className="brand-logo">Tienda</Link>
-        <a  data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+        <a href="#top" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
         <ul className="right hide-on-med-and-down">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/Simples">Simples</Link> </li>
           <li><Link to="/Triples">Triples</Link></li>
+          <li><Link to="/Tortas">Tortas</Link></li>
           <CartWidget />
         </ul>
       </div>  
@@ -20,6 +21,7 @@ function Navbar (){
       <li><Link to="/">Home</Link></li>
       <li><Link to="/Simples">Simples</Link></li>
       <li><Link to="/Triples">Triples</Link></li>
+      <li><Link to="/Tortas">Tortas</Link></li>
       <CartWidget />
     </ul>
   </div>

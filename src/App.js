@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import SimplesPage from './Pages/SimplesPage';
 import TriplesPage from './Pages/TriplesPage';
+import TortasPage from './Pages/TortasPage'
 import ItemDetail from './Components/ItemDetail/ItemDetail';
 import CartPage from './Pages/CartPage';
 import NotFoundPage from './Pages/NotFoundPage';
@@ -37,6 +38,9 @@ function App() {
                      
                         <Route path="Triples"element={<TriplesPage/>}/>
                         <Route path="/Triples/producto/:id" element={<ItemDetail UrlServerDetail="PRODUCTS2"/>}/>
+
+                        <Route path="Tortas" element={<TortasPage/>}/>
+                        <Route path="/Tortas/producto/:id" element={<ItemDetail UrlServerDetail="PRODUCTS3"/>}/>
                         
                         <Route path="Cart" element={<CartPage />}/>
                         <Route path="Thanks/:id" element={<ThankYouPage/>}/>
