@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import UserCard from "../UserCard";
 import {getFirestore} from "../../Firebase/Firebase";
+import PreLoader from "../PreLoaders/PreLoaders";
 
 function ItemlistContainer ({urlServer}){
     const [products, setProducts] = useState([]);
@@ -33,17 +34,7 @@ function ItemlistContainer ({urlServer}){
  
     if(isLoading){
 
-      return <div className="center-align">  <div class="preloader-wrapper active">
-      <div class="spinner-layer spinner-red-only">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div></div>
+      return <PreLoader/>
 
     }else if(error){
 
