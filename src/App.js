@@ -1,17 +1,17 @@
-import './App.css';
-import NavBar from './Components/NavBar'
-import { BrowserRouter, Routes, Route, } from 'react-router-dom';
-import HomePage from './Pages/HomePage';
-import SimplesPage from './Pages/SimplesPage';
-import TriplesPage from './Pages/TriplesPage';
-import TortasPage from './Pages/TortasPage'
-import ItemDetail from './Components/ItemDetail/ItemDetail';
-import CartPage from './Pages/CartPage';
-import NotFoundPage from './Pages/NotFoundPage';
+import "./App.css";
+import NavBar from "./Components/NavBar";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import SimplesPage from "./Pages/SimplesPage";
+import TriplesPage from "./Pages/TriplesPage";
+import TortasPage from "./Pages/TortasPage";
+import ItemDetail from "./Components/ItemDetail/ItemDetail";
+import CartPage from "./Pages/CartPage";
+import NotFoundPage from "./Pages/NotFoundPage";
 import { UserProvider } from "./Context/UserContext";
 import { CartProvider } from "./Context/CartContext";
-import {ThankYouPage} from './Pages/ThankYouPage'
-import Footer from './Components/Footer';
+import {ThankYouPage} from "./Pages/ThankYouPage";
+import Footer from "./Components/Footer";
 
 
 function App() {

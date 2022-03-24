@@ -1,6 +1,6 @@
 const PreLoader = () => {
   return (
-    <div className="center-align">
+    <div className="center-align fullpage">
       <div className="preloader-wrapper active">
         <div className="spinner-layer spinner-red-only">
           <div className="circle-clipper left">
