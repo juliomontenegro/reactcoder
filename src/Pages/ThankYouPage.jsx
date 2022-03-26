@@ -17,6 +17,7 @@ export const ThankYouPage = ()=> {
         .get()
         .then((res)=>setOrder({id:res.id, ...res.data()}));
         
+        
 
     },[id]);
 

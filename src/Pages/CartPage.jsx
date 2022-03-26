@@ -43,7 +43,21 @@ const db = getFirestore();
     db.collection("ORDERS")
     .add(newOrder)
     .then((res)=>{console.log("compra realizada exitosamente, su id de orden es: ", res.id)
-  
+    //  update stock firebase in documents: PRODUCTS, PRODUCTS2, PRODUCTS3
+        cart.forEach (element => {
+      db.collection(element.item.colectioname)
+      .doc(element.item.id)
+      .update({
+        stock: element.item.stock - element.quantity
+      })
+      .then(()=>{
+        console.log("stock PRODUCTS actualizado")
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+    })
+
     navigate(`/Thanks/${res.id}`)
     }, clearAll())
     
