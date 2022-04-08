@@ -9,6 +9,7 @@ const ItemDetail = ({ UrlServerDetail }) => {
   const { id } = useParams();
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [addcartbutton, setAddcartbutton] = useState(true);
   
   
   const [stock, setStock] = React.useState(1);
@@ -29,6 +30,10 @@ const ItemDetail = ({ UrlServerDetail }) => {
  
   const handleClick = () => {
     addItem(product, counter);
+
+    setAddcartbutton(false);
+   setTimeout(()=>{setAddcartbutton(true)},800)
+   
   };
  
   console.log(stock);
@@ -103,8 +108,8 @@ const ItemDetail = ({ UrlServerDetail }) => {
               </div>
 
               <br/>
-              <br/>
-              <button className="btn" onClick={handleClick}>Agregar al carrito</button>
+              <br/>              
+              <button className="btn" onClick={handleClick}>{addcartbutton?"Agregar al carrito":"Producto Agregado"}</button>
             </div>
           </div>
         </div>
